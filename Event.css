@@ -1,0 +1,174 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0ee278;;
+    padding: 15px 50px;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Enlarged School System Text */
+.logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(171, 238, 15);
+    font-weight: bold;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect on header links */
+nav ul li a:hover {
+    color: #db103c;
+    text-decoration: underline;
+}
+
+/* Authentication Page */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.auth-box {
+    display: flex;
+    width: 700px;
+    background-color: rgb(16, 233, 132);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.auth-option {
+    background-color: rgb(16, 233, 132);
+    color: white;
+    text-align: center;
+    width: 40%;
+    padding: 30px;
+}
+
+.auth-option img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.auth-form {
+    width: 60%;
+    padding: 30px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    border-bottom: 3px solid (16, 233, 132);;
+    color: #007bff;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: block;
+    margin: 10px 0;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Form Styles */
+.auth-form h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.auth-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form .btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.auth-form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #12f343;
+    color: white;
+}
