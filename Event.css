@@ -12,8 +12,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0ee278;;
-    padding: 15px 50px;
+    background-color: rgb(16, 233, 132);
+    padding: 20px 50px;
     color: white;
 }
 
@@ -48,7 +48,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: rgb(171, 238, 15);
+    color: whitesmoke;
     font-weight: bold;
     transition: color 0.3s ease, background 0.3s ease;
 }
@@ -169,6 +169,6 @@ nav ul li a:hover {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #12f343;
+    background-color: rgb(16, 233, 132);;
     color: white;
 }
