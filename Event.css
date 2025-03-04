@@ -23,8 +23,8 @@ header {
 }
 
 .logo img {
-    height: 50px;
-    margin-right: 10px;
+    height: 70px;
+    margin-right: 20px;
 }
 
 /* Enlarged School System Text */
@@ -127,6 +127,7 @@ nav ul li a:hover {
 
 .forgot-password:hover {
     text-decoration: underline;
+    color: #db103c;
 }
 
 /* Form Styles */

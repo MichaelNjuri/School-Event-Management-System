@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up </title>
     <link rel="stylesheet" type="text/css" href="Event.css">
+    <script src="Event.js"></script>
 </head>
 <body>
     <header>
@@ -34,18 +35,19 @@
                     <h3>Sign Up</h3>
 
                     <label for="fullname">Full Name:</label>
-                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+                    <div id="fullname-error"></div>
 
                     <label for="admission">Admission Number:</label>
                     <input type="text" id="admission" name="admission" placeholder="Enter your admission number" required>
-
+                    <div id="admission-error"></div>
+                    
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
 
                     <label for="confirm-password">Re-enter Password:</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
-
-                    <p id="password-error" class="error-message" style="display: none; color: red;">Passwords do not match!</p>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                    <div id="password-error" style="display:none;">Passwords do not match</div>
 
                     <button type="submit" class="btn primary">Sign Up</button>
 
@@ -60,6 +62,6 @@
         <p>Join our School Event Management System and take control of your academic schedule. Stay informed, plan ahead, and never miss an important event!</p>
     </footer>
 
-    <script src="auth.js"></script>
+    
 </body>
 </html>

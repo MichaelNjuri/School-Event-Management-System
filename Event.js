@@ -1,74 +1,54 @@
-// Password validation for signup form
 document.addEventListener("DOMContentLoaded", function () {
-    var signupForm = document.getElementById("signup-form");
+    // Access elements
+    const fullname = document.getElementById('fullname');
+    const admission = document.getElementById('admission');
+    const password = document.getElementById('password');
+    const confirm_password = document.getElementById('confirm_password');
+    const fullnameError = document.getElementById('fullname-error'); // Ensure this element exists in your HTML
+    const admissionError = document.getElementById('admission-error'); // Ensure this element exists in your HTML
+    const passwordError = document.getElementById('password-error'); // Ensure this element exists in your HTML
 
-    if (signupForm) {
-        signupForm.addEventListener("submit", function (event) {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirm-password").value;
-            var errorMessage = document.getElementById("password-error");
-
-            if (password !== confirmPassword) {
-                errorMessage.style.display = "block";
-                event.preventDefault(); // Prevent form submission
-            } else {
-                errorMessage.style.display = "none";
-            }
-        });
-    }
-});
-const mysql = require('mysql2');
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-
-app.use(bodyParser.json());
-
-// Connect to the database
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "student_user",
-    password: "yourpassword",
-    database: "school_system"
-});
-
-db.connect((err) => {
-    if (err) {
-        console.error("Database connection failed:", err);
-    } else {
-        console.log("Connected to MySQL");
-    }
-});
-
-// Sign-up route
-app.post('/signup', (req, res) => {
-    const { admission_number, name, email, password } = req.body;
-    const sql = "INSERT INTO users (admission_number, name, email, password) VALUES (?, ?, ?, ?)";
-    db.query(sql, [admission_number, name, email, password], (err, result) => {
-        if (err) {
-            res.status(500).send("Error registering user");
+    function checkFullname() {
+        // Pick the username entered
+        const fullnameValue = fullname.value;
+        // Check if it meets criteria
+        if (!fullnameValue.match(/^[A-Za-z ]+$/)) {
+            fullnameError.textContent = "Name should only contain alphabets";
+            fullnameError.style.color = "red";
+            return false;
         } else {
-            res.send("User registered successfully");
+            fullnameError.textContent = "";
+            return true;
         }
-    });
-});
+    }
 
-// Login route
-app.post('/login', (req, res) => {
-    const { admission_number, password } = req.body;
-    const sql = "SELECT * FROM users WHERE admission_number = ? AND password = ?";
-    db.query(sql, [admission_number, password], (err, results) => {
-        if (err) {
-            res.status(500).send("Error logging in");
-        } else if (results.length > 0) {
-            res.send("Login successful");
+    function checkAdmission() {
+        // Pick the admission number entered
+        const admissionValue = admission.value;
+        // Check if it meets criteria
+        if (!admissionValue.match(/^\d+$/)) {
+            admissionError.textContent = "Admission number should only contain numbers";
+            admissionError.style.color = "red";
+            return false;
         } else {
-            res.status(401).send("Invalid credentials");
+            admissionError.textContent = "";
+            return true;
         }
-    });
-});
+    }
 
-// Start the server
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+    function checkPasswords() {
+        if (password.value !== confirm_password.value) {
+            passwordError.style.display = "block";
+            passwordError.style.color = "red";
+            return false;
+        } else {
+            passwordError.style.display = "none";
+            return true;
+        }
+    }
+
+    // Add event handlers
+    fullname.addEventListener('input', checkFullname);
+    admission.addEventListener('input', checkAdmission);
+    confirm_password.addEventListener('input', checkPasswords);
 });
