@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const admission = document.getElementById('admission');
     const password = document.getElementById('password');
     const confirm_password = document.getElementById('confirm_password');
-    const fullnameError = document.getElementById('fullname-error'); // Ensure this element exists in your HTML
-    const admissionError = document.getElementById('admission-error'); // Ensure this element exists in your HTML
-    const passwordError = document.getElementById('password-error'); // Ensure this element exists in your HTML
+    const fullnameError = document.getElementById('fullname-error'); 
+    const admissionError = document.getElementById('admission-error'); 
+    const passwordError = document.getElementById('password-error'); 
 
     function checkFullname() {
         // Pick the username entered
