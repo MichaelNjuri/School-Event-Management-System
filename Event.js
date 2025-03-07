@@ -52,3 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
     admission.addEventListener('input', checkAdmission);
     confirm_password.addEventListener('input', checkPasswords);
 });
+(function() {
+	var $body = document.body
+	, $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+	if ( typeof $menu_trigger !== 'undefined' ) {
+		$menu_trigger.addEventListener('click', function() {
+			$body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
+		});
+	}
+
+}).call(this);            
