@@ -1,13 +1,16 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     color: #333;
 }
 
-/* Sidebar */
 /* Header */
 header {
     position: fixed;
@@ -16,12 +19,26 @@ header {
     width: 100%;
     height: 60px; /* Ensure header height is consistent */
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: rgb(16, 233, 132);
     padding: 10px 50px;
     color: white;
     z-index: 1000; /* Ensure header is always on top */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Sidebar */
@@ -36,6 +53,28 @@ header {
     transition: 0.3s;
 }
 
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+    color: #ffffff; /* Ensure text color remains white on hover */
+}
+
 /* Hide Sidebar on Login and Sign Up Pages */
 .no-sidebar .sidebar {
     display: none;
@@ -45,20 +84,6 @@ header {
     margin-left: 0;
 }
 
-/* Sidebar links */
-.sidebar a {
-    padding: 10px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #575757;
-}
-
 /* Main Content */
 .main-content {
     margin-left: 200px; /* Adjust margin to match sidebar width */
@@ -66,79 +91,13 @@ header {
     padding: 20px;
 }
 
-
-dash header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(16, 233, 132);
-    padding: 10px 30px;
-    color: white;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 70px;
-    margin-right: 20px;
-}
-
-/* Enlarged School System Text */
-.logo-text {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-
- h1 {
-        background-color: teal;
-        color: white; 
-        text-align: center;
-        padding: 7px; 
-        margin: 0; 
-        border-radius: 5px; 
-        width: 20%;
-    }
-}
-
-
-
-/* Navigation */
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column; /* Change to vertical layout */
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 10px 0; /* Adjust margin for vertical layout */
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: whitesmoke;
-    font-weight: bold;
-    transition: color 0.3s ease, background 0.3s ease;
-}
-
-/* Hover effect on header links */
-nav ul li a:hover {
-    color: #db103c;
-    text-decoration: underline;
-}
-
-
-
 /* Authentication Page */
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: calc(100vh - 60px); /* Adjust height to account for the header */
+    margin-top: 60px; /* Ensure it does not touch the header */
 }
 
 .auth-box {
@@ -186,7 +145,7 @@ nav ul li a:hover {
 }
 
 .tab-btn.active {
-    border-bottom: 3px solid (16, 233, 132);;
+    border-bottom: 3px solid rgb(16, 233, 132);
     color: #007bff;
 }
 
@@ -285,12 +244,49 @@ nav ul li a:hover {
     background-color: #a50d2a;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgb(16, 233, 132);;
-    color: white;
+/* Dashboard Styles */
+.dashboard .container {
+    display: flex;
+    gap: 20px;
 }
+
+.dashboard .card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.dashboard h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.dashboard .item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.dashboard .tag {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.dashboard .academic {
+    background: #d0e1fd;
+    color: #1a56db;
+}
+
+.dashboard .sports {
+    background: #d3f9d8;
+    color: #2a9d8f;
+}
+
 
 
