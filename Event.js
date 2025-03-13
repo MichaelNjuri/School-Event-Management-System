@@ -4,14 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const admission = document.getElementById('admission');
     const password = document.getElementById('password');
     const confirm_password = document.getElementById('confirm_password');
-    const fullnameError = document.getElementById('fullname-error'); 
-    const admissionError = document.getElementById('admission-error'); 
-    const passwordError = document.getElementById('password-error'); 
+    const fullnameError = document.getElementById('fullname-error');
+    const admissionError = document.getElementById('admission-error');
+    const passwordError = document.getElementById('password-error');
+    const task = document.getElementById('task');
+    const addtaskButton = document.getElementById('addTask');
+    const totdolist = document.getElementById('upcoming-events-list');
+
 
     function checkFullname() {
-        // Pick the username entered
         const fullnameValue = fullname.value;
-        // Check if it meets criteria
         if (!fullnameValue.match(/^[A-Za-z ]+$/)) {
             fullnameError.textContent = "Name should only contain alphabets";
             fullnameError.style.color = "red";
@@ -23,9 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function checkAdmission() {
-        // Pick the admission number entered
         const admissionValue = admission.value;
-        // Check if it meets criteria
         if (!admissionValue.match(/^\d+$/)) {
             admissionError.textContent = "Admission number should only contain numbers";
             admissionError.style.color = "red";
@@ -52,14 +52,35 @@ document.addEventListener("DOMContentLoaded", function () {
     admission.addEventListener('input', checkAdmission);
     confirm_password.addEventListener('input', checkPasswords);
 });
-(function() {
-	var $body = document.body
-	, $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
 
-	if ( typeof $menu_trigger !== 'undefined' ) {
-		$menu_trigger.addEventListener('click', function() {
-			$body.className = ( $body.className == 'menu-active' )? '' : 'menu-active';
-		});
-	}
+function addtask() {
+    const taskValue = task.value;
+    const li = document.createElement('div');
+    li.className = "item";
+    li.textContent = taskValue;
 
-}).call(this);            
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'X';
+    li.appendChild(removeButton);
+
+    totdolist.appendChild(li);
+
+    li.addEventListener('click', function(){
+        removeButton.remove();
+        li.style.textDecoration = 'line-through';
+        li.style.color = 'red';
+    });
+    task.value = "";
+}
+
+addtaskButton.addEventListener('click', addtask);
+(function () {
+    const $body = document.body;
+    const $menu_trigger = $body.getElementsByClassName('menu-trigger')[0];
+
+    if (typeof $menu_trigger !== 'undefined') {
+        $menu_trigger.addEventListener('click', function () {
+            $body.className = ($body.className === 'menu-active') ? '' : 'menu-active';
+        });
+    }
+}).call(this);
