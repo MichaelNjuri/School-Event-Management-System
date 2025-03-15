@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Access elements
-    const fullname = document.getElementById('fullname');
+    const username = document.getElementById('fullname');
     const admission = document.getElementById('admission');
     const password = document.getElementById('password');
     const confirm_password = document.getElementById('confirm_password');
-    const fullnameError = document.getElementById('fullname-error');
+    const usernameError = document.getElementById('fullname-error');
     const admissionError = document.getElementById('admission-error');
     const passwordError = document.getElementById('password-error');
     const task = document.getElementById('task');
@@ -12,14 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const totdolist = document.getElementById('upcoming-events-list');
 
 
-    function checkFullname() {
-        const fullnameValue = fullname.value;
-        if (!fullnameValue.match(/^[A-Za-z ]+$/)) {
-            fullnameError.textContent = "Name should only contain alphabets";
-            fullnameError.style.color = "red";
+    function checkUsername() {
+        const usernameValue = username.value;
+        if (!usernameValue.match(/^[A-Za-z ]+$/)) {
+            usernameError.textContent = "Name should only contain alphabets";
+            usernameError.style.color = "red";
             return false;
         } else {
-            fullnameError.textContent = "";
+            usernameError.textContent = "";
             return true;
         }
     }
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Add event handlers
-    fullname.addEventListener('input', checkFullname);
+    username.addEventListener('input', checkUsername);
     admission.addEventListener('input', checkAdmission);
     confirm_password.addEventListener('input', checkPasswords);
 });

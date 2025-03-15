@@ -18,13 +18,18 @@ header {
     left: 0;
     width: 100%;
     height: 60px;
+    background: #26a69a;
+    z-index: 1100; /* Higher than sidebar */
     display: flex;
     align-items: center;
-    background-color: rgb(16, 233, 132);
-    padding: 10px 50px;
+    padding-left: 20px;
     color: white;
-    z-index: 1000;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .logo {
     display: flex;
@@ -42,6 +47,111 @@ header {
 }
 
 /* Sidebar */
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+.fa-2x {
+    font-size: 2em;
+}
+
+.fa {
+    position: relative;
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+/* Sidebar Styling */
+.main-menu {
+    position: fixed;
+    top: 60px; /* Below header */
+    left: 0;
+    width: 60px;
+    height: calc(100vh - 60px);
+    background: #2E2E2E;
+    border-right: 1px solid #e5e5e5;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.main-menu:hover, .main-menu.expanded {
+    width: 220px;
+    overflow: visible;
+}
+
+/* Sidebar List */
+.main-menu > ul {
+    list-style: none;
+    margin: 7px 0;
+    padding: 0;
+}
+
+.main-menu li {
+    position: relative;
+    display: block;
+    width: 220px;
+}
+
+/* Sidebar Links */
+.main-menu li > a {
+    position: relative;
+    display: table;
+    color: #ddd;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.1s linear;
+}
+
+.main-menu li > a:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Sidebar Icons */
+.main-menu .nav-icon {
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+/* Sidebar Text */
+.main-menu .nav-text {
+    display: table-cell;
+    vertical-align: middle;
+    width: 170px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+/* Logout Button at Bottom */
+.main-menu > ul.logout {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+/* Adjust main content to avoid sidebar overlap */
+#main-content {
+    margin-top: 60px;
+    padding: 20px;
+    margin-left: 60px; /* Matches collapsed sidebar width */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-menu:hover ~ #main-content,
+.main-menu.expanded ~ #main-content {
+    margin-left: 250px; /* Matches expanded sidebar width */
+}
+
+
 .sidebar {
     position: fixed;
     top: 60px;
@@ -65,7 +175,7 @@ header {
 .sidebar ul li a {
     color: #ffffff;
     text-decoration: none;
-    padding: 10px;
+    padding: 7px;
     display: block;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -73,6 +183,54 @@ header {
 .sidebar ul li a:hover {
     background-color: #575757;
     color: #ffffff;
+}
+
+.no-touch .scrollable.hover {
+    overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+    overflow-y: auto;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+nav {
+    user-select: none;
+}
+
+nav ul, nav li {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li:hover > a, 
+nav.main-menu li.active > a, 
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus, 
+.dropdown-menu > .active > a, 
+.dropdown-menu > .active > a:hover, 
+.dropdown-menu > .active > a:focus, 
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a, 
+.dashboard-page nav.dashboard-menu ul li.active a {
+    color: #fff;
+    background-color: #000000;
+    padding: 0;
+}
+
+.area {
+    display: none; /* Hide the area */
+}
+
+
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
 /* Main Content */
@@ -90,19 +248,21 @@ header {
     align-items: center;
     height: calc(100vh - 60px);
     margin-top: 60px;
+    margin-left: 60px; /* Match sidebar width */
+    padding-top: 60px; /* Prevent header overlap */
 }
 
 .auth-box {
     display: flex;
     width: 700px;
-    background-color: rgb(16, 233, 132);
+    background-color: #26a69a;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
 }
 
 .auth-option {
-    background-color: rgb(16, 233, 132);
+    background-color:#26a69a;
     color: white;
     text-align: center;
     width: 40%;
@@ -137,16 +297,16 @@ header {
 }
 
 .tab-btn.active {
-    border-bottom: 3px solid rgb(16, 233, 132);
-    color: #007bff;
+    border-bottom: 3px solid #3BA99C; 
+    color: #643c7a;
 }
 
 /* Forgot Password Link */
 .forgot-password {
     display: block;
     margin: 10px 0;
-    color: #007bff;
-    text-decoration: none;
+    color: #690404;
+    text-decoration: underline;
     font-size: 14px;
 }
 
@@ -290,3 +450,5 @@ header {
     padding: 30px;
     width: calc(100% - 220px); /* Adjusted */
 }
+
+
