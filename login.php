@@ -42,7 +42,7 @@ if ($stmt->fetch()) {
     if (password_verify($password, $hashed_password)) {
         echo "Password matches!";
         $_SESSION['username'] = $username;
-        header("Location: Dashboard.html");
+        header("Location: Account.html");
         exit();
     } else {
         echo "Password does NOT match!";
