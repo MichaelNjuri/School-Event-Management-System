@@ -3,80 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Manager</title>
-    <link rel="stylesheet" href="Event.css">
+    <title>Profile Page</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a252f);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        .top-nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem;
+            position: fixed;
+            top: 80px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .top-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .top-nav a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            position: relative;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .top-nav a:hover::after {
+            width: 100%;
+        }
+
+        .profile-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            margin-top: 120px;
+        }
+
+        .profile-header {
+            background: #007BFF;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+        }
+
+        .profile-section {
+            padding: 2rem;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-info img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 2rem;
+        }
+
+        .profile-details {
+            flex: 1;
+        }
+
+        .profile-details h3 {
+            margin-top: 0;
+        }
+
+        .profile-details p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        .personal-info, .address-info {
+            margin-bottom: 2rem;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .info-table th, .info-table td {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .edit-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-        <header class="dash header">
-            <div class="logo">
-                <img src="School E.png" alt="School Logo">
-                <h1>School Event Management System</h1>
-            </div>
-        </header>
-       
-        <nav class="main-menu">
-            <ul>
-                <li>
-                    <a href="Dashboard.html">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="has-subnav">
-                    <a href="calendar.html">
-                        <i class="fa fa-globe fa-2x"></i>
-                        <span class="nav-text">Calendar</span>
-                    </a>
-                </li>
-                <li class="has-subnav">
-                    <a href="settings.html">
-                        <i class="fa fa-comments fa-2x"></i>
-                        <span class="nav-text">Settings</span>
-                    </a>
-                </li>
-                <li class="has-subnav">
-                    <a href="Account.html">
-                        <i class="fa fa-camera-retro fa-2x"></i>
-                        <span class="nav-text">Account</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Login.html">
-                        <i class="fa fa-film fa-2x"></i>
-                        <span class="nav-text">Login</span>
-                    </a>
-                </li>
-                <li class="has-subnav">
-                    <a href="Landing_page.html">
-                        <i class="fa fa-flag fa-2x"></i>
-                        <span class="nav-text">Landing Page</span>
-                    </a>
-                </li>
-               
-            </ul>
-            <ul class="logout">
-                <li>
-                    <a href="Login.html">
-                        <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    <div class="main-content">
-        <!-- User Details Container -->
-        <div class="user-details-container">
-            <h2>User Details</h2>
-            <p><strong>Username:</strong> JohnDoe</p>
-            <p><strong>Email:</strong> johndoe@example.com</p>
-            <!-- Add other details as needed -->
+    <header>
+        <div class="logo">
+            <h1>School Event Manager</h1>
         </div>
-
-        <!-- Sign Out Container -->
-        <div class="sign-out-container">
-            <button class="btn" onclick="window.location.href='./Login.html'">Sign Out</button>
+    </header>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="Account.html">Account</a></li>
+        </ul>
+    </nav>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h2>My Profile</h2>
+        </div>
+        <div class="profile-section">
+            <div class="profile-info">
+                <img id="profile-pic" src="default-profile.jpg" alt="Profile Picture">
+                <div class="profile-details">
+                    <h3 id="user-name">Natasha Khaleira</h3>
+                    <p id="user-role">Admin</p>
+                    <p id="user-location">Leeds, United Kingdom</p>
+                </div>
+            </div>
+            <div class="personal-info">
+                <h3>Personal Information</h3>
+                <button class="edit-btn">Edit</button>
+                <table class="info-table">
+                    <tr>
+                        <th>First Name</th>
+                        <td id="first-name">Natasha</td>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <td id="last-name">Khaleira</td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth</th>
+                        <td id="dob">12-10-1990</td>
+                    </tr>
+                    <tr>
+                        <th>Email Address</th>
+                        <td id="email">info@binary-fusion.com</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number</th>
+                        <td id="phone">(+62) 821 2554-5846</td>
+                    </tr>
+                    <tr>
+                        <th>User Role</th>
+                        <td id="role">Admin</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="address-info">
+                <h3>Address</h3>
+                <button class="edit-btn">Edit</button>
+                <table class="info-table">
+                    <tr>
+                        <th>Country</th>
+                        <td id="country">United Kingdom</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td id="city">Leeds, East London</td>
+                    </tr>
+                    <tr>
+                        <th>Post Code</th>
+                        <td id="post-code">ERT 1254</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-   
 </body>
 </html>

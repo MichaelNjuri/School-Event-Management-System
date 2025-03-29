@@ -228,7 +228,7 @@
 
     <nav class="top-nav">
         <ul>
-            <li><a href="file:///C:/xampp/htdocs/Event_manager/Landing_page.html">Home</a></li>
+            <li><a href="Home.html">Home</a></li>
             
         </ul>
     </nav>
@@ -248,6 +248,19 @@
 
                     <label for="admission">Admission Number</label>
                     <input type="text" id="admission" name="admission" required>
+                    <label for="user_type">Select Account Type:</label>
+
+                    <select id="user_type" name="user_type" required onchange="toggleAdminKey()">
+                        <option value="" disabled selected>Select your account type</option>
+                        <option value="Student">Student</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Host">Host</option>
+                    </select>
+
+                    <div id="admin-key-container" style="display: none;">
+                        <label for="admin_key">Enter Admin Key:</label>
+                        <input type="password" id="admin_key" name="admin_key">
+                    </div>
 
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
@@ -263,5 +276,16 @@
             </div>
         </div>
     </main>
+    <script>
+        function toggleAdminKey() {
+            const userType = document.getElementById("user_type").value;
+            const adminKeyField = document.getElementById("admin-key-container");
+            if (userType === "Admin") {
+                adminKeyField.style.display = "block";
+            } else {
+                adminKeyField.style.display = "none";
+            }
+        }
+        </script>
 </body>
 </html>
