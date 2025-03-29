@@ -22,8 +22,8 @@
         }
 
         body {
+            padding-top: 160px;
             background: #f8f9fa;
-            min-height: 100vh;
         }
 
         header {
@@ -37,44 +37,95 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        header .logo h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            text-align: center;
+         .logo h1 {
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: gradientShift 5s ease infinite;
+            background-size: 200% 200%;
         }
 
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Adjusted Navigation Positioning */
         .top-nav {
-            background: var(--secondary);
-            padding: 1rem 0;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 3.2rem; /* Adjust based on header height */
+            top: 60px;
+            background: rgba(255,255,255,0.85);
+            z-index: 1001;
+        }
+
+        .slider-container {
+            margin-top: 140px;
             z-index: 999;
         }
 
+        body {
+            padding-top: 120px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 50px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .top-nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem;
+            position: fixed;
+            top: 80px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
         .top-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .top-nav ul li {
-            margin: 0;
-        }
-
-        .top-nav ul li a {
-            color: white;
+        .top-nav a {
+            color: var(--primary);
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            position: relative;
+            font-weight: 500;
         }
 
-        .top-nav ul li a:hover {
-            color: var(--accent);
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .top-nav a:hover::after {
+            width: 100%;
         }
 
         .calendar-container {
@@ -252,18 +303,29 @@
 <body>
     <header>
         <div class="logo">
-            <h1>School Event Manager</h1>
+            
+            <h1>School Event Management System</h1>
         </div>
     </header>
 
     <nav class="top-nav">
         <ul>
+<<<<<<< HEAD
             <li><a href="Home.html">Home</a></li>
             <li><a href="signup.html">Sign Up</a></li>
             <li><a href="Login.html">Login</a></li>
             <li><a href="Dashboard.html">Dashboard</a></li>
             <li><a href="calendar.html">Calendar</a></li>
             <li><a href="Account.html">Account</a></li>
+=======
+            <li><a href="file:///C:/xampp/htdocs/Event_manager/Landing_page.html">Home</a></li>
+            <li><a href="file:///C:/xampp/htdocs/Event_manager/signup.html">Sign Up</a></li>
+            <li><a href="file:///C:/xampp/htdocs/Event_manager/Login.html">Login</a></li>
+            <li><a href="file:///C:/xampp/htdocs/Event_manager/Dashboard.html">Dashboard</a></li>
+            <li><a href="file:///C:/xampp/htdocs/Event_manager/calendar.html">Calendar</a></li>
+            <li><a href="#account">Account</a></li>
+            <li><a href="#Login.html"> Logout</a></li>
+>>>>>>> 3ee18c1 (Header)
         </ul>
     </nav>
 
