@@ -216,6 +216,53 @@
         .top-nav a:hover::after {
             width: 100%;
         }
+
+        .footer {
+        background: var(--primary);
+        color: var(--light);
+        padding: 40px 20px 20px;
+        margin-top: 50px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .footer-section h4 {
+        color: var(--secondary);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+        color: var(--light);
+        line-height: 1.6;
+        font-size: 0.9rem;
+    }
+
+    .footer-section a {
+        text-decoration: none;
+        display: block;
+        transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+        color: var(--secondary);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+
+
     </style>
 </head>
 <body>
@@ -228,7 +275,11 @@
 
     <nav class="top-nav">
         <ul>
+<<<<<<< HEAD
             <li><a href="Home.html">Home</a></li>
+=======
+            <li><a href="file:///C:/xampp/htdocs/Event_manager/Home_page.html">Home</a></li>
+>>>>>>> 9359002 (Your commit message)
             
         </ul>
     </nav>
@@ -276,6 +327,7 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
     <script>
         function toggleAdminKey() {
             const userType = document.getElementById("user_type").value;
@@ -287,5 +339,38 @@
             }
         }
         </script>
+=======
+
+
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>Email: eschoolventsystem@gmail.com</p>
+            <p>Phone: (+254) 7-1234-5678</p>
+            <p>Address: 123 Campus Road, Nairobi City</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="file:///C:/xampp/htdocs/Event_manager/Login.html">Log-In</a></li>
+                <li><a href="file:///C:/xampp/htdocs/Event_manager/signup.html">Sign-Up</a></li>
+                <li><a href="file:///C:/xampp/htdocs/Event_manager/Dashboard.html">Dashboard</a></li>
+              
+            </ul>
+        </div>
+        
+        
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© <span id="year"></span> School Event Management System. All rights reserved.</p>
+    </div>
+</footer>
+
+
+
+>>>>>>> 9359002 (Your commit message)
 </body>
 </html>
