@@ -22,6 +22,8 @@
         body {
             background: #f8f9fa;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -32,7 +34,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
@@ -53,13 +55,13 @@
         }
 
         .top-nav {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255, 255, 255, 0.95);
             padding: 1rem;
             position: fixed;
             top: 80px;
             width: 100%;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             z-index: 999;
         }
 
@@ -102,20 +104,23 @@
         }
 
         .profile-container {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 800px;
-            overflow: hidden;
-            margin-top: 120px;
-        }
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    margin: 180px auto 20px auto; /* Increased margin-top */
+    padding: 20px;
+}
+
 
         .profile-header {
             background: #007BFF;
             color: white;
             padding: 1rem;
             text-align: center;
+            border-radius: 8px 8px 0 0;
         }
 
         .profile-header h2 {
@@ -126,35 +131,56 @@
             padding: 2rem;
         }
 
-        .profile-info {
+        .profile-pic-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
+            gap: 10px;
             margin-bottom: 2rem;
         }
 
-        .profile-info img {
-            border-radius: 50%;
+        #profile-pic {
             width: 100px;
             height: 100px;
+            border-radius: 50%;
             object-fit: cover;
-            margin-right: 2rem;
+            border: 2px solid #ccc;
         }
 
-        .profile-details {
-            flex: 1;
+        .add-photo-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
         }
 
-        .profile-details h3 {
-            margin-top: 0;
+        .add-photo-btn:hover {
+            background-color: #0056b3;
         }
 
-        .profile-details p {
-            margin: 0.5rem 0;
-            color: #555;
+        .personal-info {
+            margin-top: 2rem;
         }
 
-        .personal-info, .address-info {
-            margin-bottom: 2rem;
+        .personal-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .edit-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .edit-btn:hover {
+            background-color: #0056b3;
         }
 
         .info-table {
@@ -174,18 +200,18 @@
             font-weight: bold;
         }
 
-        .edit-btn {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
+        .info-table input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            cursor: pointer;
-            float: right;
+            background-color: #f9f9f9;
+            pointer-events: none; /* Make input fields non-editable */
         }
 
-        .edit-btn:hover {
-            background-color: #0056b3;
+        /* Hide the file input */
+        #file-input {
+            display: none;
         }
     </style>
 </head>
@@ -210,63 +236,47 @@
             <h2>My Profile</h2>
         </div>
         <div class="profile-section">
-            <div class="profile-info">
-                <img id="profile-pic" src="default-profile.jpg" alt="Profile Picture">
-                <div class="profile-details">
-                    <h3 id="user-name">Natasha Khaleira</h3>
-                    <p id="user-role">Admin</p>
-                    <p id="user-location">Leeds, United Kingdom</p>
-                </div>
+            <div class="profile-pic-container">
+                <img id="profile-pic" src="Default pic.jpg" alt="Profile Picture">
+                <button id="add-photo" class="add-photo-btn">Add Profile Photo</button>
+                <input type="file" id="file-input" accept="image/*">
             </div>
             <div class="personal-info">
                 <h3>Personal Information</h3>
                 <button class="edit-btn">Edit</button>
                 <table class="info-table">
                     <tr>
-                        <th>First Name</th>
-                        <td id="first-name">Natasha</td>
+                        <th>Full Name</th>
+                        <td><input type="text" id="full-name" value="Fullname"></td>
                     </tr>
                     <tr>
-                        <th>Last Name</th>
-                        <td id="last-name">Khaleira</td>
+                        <th>Admission</th>
+                        <td><input type="text" id="admission" value="admission"></td>
                     </tr>
                     <tr>
-                        <th>Date of Birth</th>
-                        <td id="dob">12-10-1990</td>
-                    </tr>
-                    <tr>
-                        <th>Email Address</th>
-                        <td id="email">info@binary-fusion.com</td>
-                    </tr>
-                    <tr>
-                        <th>Phone Number</th>
-                        <td id="phone">(+62) 821 2554-5846</td>
-                    </tr>
-                    <tr>
-                        <th>User Role</th>
-                        <td id="role">Admin</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="address-info">
-                <h3>Address</h3>
-                <button class="edit-btn">Edit</button>
-                <table class="info-table">
-                    <tr>
-                        <th>Country</th>
-                        <td id="country">United Kingdom</td>
-                    </tr>
-                    <tr>
-                        <th>City</th>
-                        <td id="city">Leeds, East London</td>
-                    </tr>
-                    <tr>
-                        <th>Post Code</th>
-                        <td id="post-code">ERT 1254</td>
+                        <th>Role</th>
+                        <td><input type="text" id="role" value="Role"></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('add-photo').addEventListener('click', function() {
+            document.getElementById('file-input').click();
+        });
+
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-pic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>
